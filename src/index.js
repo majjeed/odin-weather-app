@@ -7,22 +7,41 @@ const getWeather = async (location) => {
   return weatherData;
 };
 
+const getIconUrl = (iconUrl) => {
+  if (iconUrl.includes("day")) {
+    return `../images/weather/day/${iconUrl.split("day/")[1]}`;
+  } else if (iconUrl.includes("night")) {
+    return `../images/weather/night/${iconUrl.split("night/")[1]}`;
+  }
+};
+
 const display = (weatherData) => {
   const weatherDiv = document.querySelector(".weatherDiv");
 
-  const tempC = document.createElement("p");
+  const tempC = document.createElement("h3");
   tempC.innerText = `Temperature in ${weatherData.location.name} is : ${weatherData.current.temp_c} Celsius`;
 
-  const tempF = document.createElement("p");
+  const tempF = document.createElement("h3");
   tempF.innerText = `Temperature in ${weatherData.location.name} is : ${weatherData.current.temp_f} Fahrenheit`;
 
-  const time = document.createElement("p");
+  const time = document.createElement("h3");
   time.innerText = `Local Time: ${
     weatherData.location.localtime.split(" ")[1]
   } \n Last Updated: ${weatherData.current.last_updated.split(" ")[1]}`;
+
+  const img = document.createElement("img");
+  //   img.src = `https:${weatherData.current.condition.icon}`;
+  img.src = getIconUrl(weatherData.current.condition.icon);
+
+  const weatherCondition = document.createElement("h3");
+  weatherCondition.innerText = `${weatherData.current.condition.text}`;
+
   weatherDiv.appendChild(tempC);
   weatherDiv.appendChild(tempF);
   weatherDiv.appendChild(time);
+
+  weatherDiv.appendChild(weatherCondition);
+  weatherDiv.appendChild(img);
 };
 
 const findWeatherBtn = document.querySelector(".findWeather");
