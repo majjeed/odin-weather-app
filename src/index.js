@@ -9,9 +9,9 @@ const getWeather = async (location) => {
 
 const getIconUrl = (iconUrl) => {
   if (iconUrl.includes("day")) {
-    return `../images/weather/day/${iconUrl.split("day/")[1]}`;
+    return `./images/weather/day/${iconUrl.split("day/")[1]}`;
   } else if (iconUrl.includes("night")) {
-    return `../images/weather/night/${iconUrl.split("night/")[1]}`;
+    return `./images/weather/night/${iconUrl.split("night/")[1]}`;
   }
 };
 
