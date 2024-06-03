@@ -52,3 +52,14 @@ findWeatherBtn.addEventListener("click", async (event) => {
   display(weather);
   console.log(weather);
 });
+
+// Example of getting the forecast data for 3 days look at data.forecast.forecastday array
+/*
+async function getForecast3Days() {
+  let z = await fetch(
+    "https://api.weatherapi.com/v1/forecast.json?key=979813dc6c134dfe9ae130434243105&q=london&days=3"
+  );
+  let g = await z.json();
+  return g;
+}
+*/
