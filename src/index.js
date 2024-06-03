@@ -9,9 +9,20 @@ const getWeather = async (location) => {
 
 const display = (weatherData) => {
   const weatherDiv = document.querySelector(".weatherDiv");
+
   const tempC = document.createElement("p");
   tempC.innerText = `Temperature in ${weatherData.location.name} is : ${weatherData.current.temp_c} Celsius`;
+
+  const tempF = document.createElement("p");
+  tempF.innerText = `Temperature in ${weatherData.location.name} is : ${weatherData.current.temp_f} Fahrenheit`;
+
+  const time = document.createElement("p");
+  time.innerText = `Local Time: ${
+    weatherData.location.localtime.split(" ")[1]
+  } \n Last Updated: ${weatherData.current.last_updated.split(" ")[1]}`;
   weatherDiv.appendChild(tempC);
+  weatherDiv.appendChild(tempF);
+  weatherDiv.appendChild(time);
 };
 
 const findWeatherBtn = document.querySelector(".findWeather");

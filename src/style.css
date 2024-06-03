@@ -1,0 +1,49 @@
+/* html {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../images/foggy_cape_perpetua.jpg);
+  background-size: cover;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 8rem;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url(../images/foggy_cape_perpetua.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+fieldset,
+.weatherDiv {
+  background-color: rgb(235 234 234 / 36%);
+  border-radius: 3px;
+  padding: 3px;
+  width: 400px;
+}
+
+p {
+  font-size: 18px;
+  text-align: center;
+}
+
+button {
+  padding: 4px 8px;
+}
