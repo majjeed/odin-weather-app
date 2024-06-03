@@ -7,6 +7,8 @@ const getWeather = async (location) => {
   return weatherData;
 };
 
+//encountering issues loading locally with github pages
+/*
 const getIconUrl = (iconUrl) => {
   if (iconUrl.includes("day")) {
     return `/images/weather/day/${iconUrl.split("day/")[1]}`;
@@ -14,6 +16,7 @@ const getIconUrl = (iconUrl) => {
     return `/images/weather/night/${iconUrl.split("night/")[1]}`;
   }
 };
+*/
 
 const display = (weatherData) => {
   const weatherDiv = document.querySelector(".weatherDiv");
@@ -30,8 +33,8 @@ const display = (weatherData) => {
   } \n Last Updated: ${weatherData.current.last_updated.split(" ")[1]}`;
 
   const img = document.createElement("img");
-  //   img.src = `https:${weatherData.current.condition.icon}`;
-  img.src = getIconUrl(weatherData.current.condition.icon);
+  img.src = `https:${weatherData.current.condition.icon}`;
+  //img.src = getIconUrl(weatherData.current.condition.icon);
 
   const weatherCondition = document.createElement("h3");
   weatherCondition.innerText = `${weatherData.current.condition.text}`;
